@@ -1,0 +1,25 @@
+<h1>Would you like to have a music?</h1>
+
+<form>
+  <div class="form-group">
+    <input class="form-control" type="text" placeholder="Search Artist..." [(ngModel)]="searchStr" name="searchStr" (keyup)="searchMusic()">
+  </div>
+</form>
+
+<div *ngIf="searchRes">
+  <div *ngFor="let artist of searchRes">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="search-res well">
+          <!--<h4>{{ artist.name }}</h4>-->
+          <a routerLink = "/artist/{{ artist.id }}">{{ artist.name }}</a>
+          
+          <div>
+            <strong>Genres:</strong>
+            <span *ngFor="let genre of artist.genres"> {{ genre }} </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
